@@ -4,9 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import me.rdxx.pepal.screens.AccountScreen
-import me.rdxx.pepal.screens.GradesScreen
-import me.rdxx.pepal.screens.HomeScreen
+import me.rdxx.pepal.screens.*
 
 @Composable
 fun Navigation(navController: NavHostController) {
@@ -19,6 +17,12 @@ fun Navigation(navController: NavHostController) {
         }
         composable(NavigationItems.Account.route) {
             AccountScreen()
+        }
+        composable(NavigationItems.Menu.route) {
+            MenuScreen(navController)
+        }
+        composable("login") {
+            LoginScreen()
         }
     }
 }

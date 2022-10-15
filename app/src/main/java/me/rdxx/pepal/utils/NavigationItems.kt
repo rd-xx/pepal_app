@@ -1,15 +1,13 @@
 package me.rdxx.pepal.utils
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AccountBox
-import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.List
-import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class NavigationItems(var route: String, var icon: ImageVector, var label: String) {
     object Home : NavigationItems("home", Icons.Rounded.Home, "Home")
-    object Grades : NavigationItems("grades", Icons.Rounded.List, "Grades")
-    object Account : NavigationItems("account", Icons.Rounded.AccountBox, "Account")
-    object Menu : NavigationItems("menu", Icons.Rounded.Menu, "Menu")
+    object Grades : NavigationItems("grades", Icons.Rounded.Grading, "Grades")
+    object Account : NavigationItems("account", Icons.Rounded.AccountCircle, "Account")
+    object Settings : NavigationItems("settings", Icons.Rounded.Settings, "Settings")
+    object Menu : NavigationItems("menu", Icons.Rounded.MenuBook, "Menu")
 }

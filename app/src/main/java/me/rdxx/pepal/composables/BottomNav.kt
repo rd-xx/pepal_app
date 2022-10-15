@@ -6,24 +6,31 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import me.rdxx.pepal.data.StoreSettings
 import me.rdxx.pepal.utils.NavigationItems
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
+    val dataStore = StoreSettings(LocalContext.current)
+    val debug = dataStore.getDebug.collectAsState(initial = false).value!!
     val items = listOf(
         NavigationItems.Home,
         NavigationItems.Grades,
         NavigationItems.Account,
+        NavigationItems.Settings,
         NavigationItems.Menu
     )
 
     BottomAppBar {
         items.forEach { item ->
+            if (item.route == "menu" && !debug) return@forEach
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
 

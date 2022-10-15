@@ -18,6 +18,9 @@ fun Navigation(navController: NavHostController) {
         composable(NavigationItems.Account.route) {
             AccountScreen()
         }
+        composable(NavigationItems.Settings.route) {
+            SettingsScreen()
+        }
         composable(NavigationItems.Menu.route) {
             MenuScreen(navController)
         }
@@ -25,4 +28,5 @@ fun Navigation(navController: NavHostController) {
             LoginScreen()
         }
     }
+
 }

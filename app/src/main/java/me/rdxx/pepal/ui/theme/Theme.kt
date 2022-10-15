@@ -6,10 +6,12 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import me.rdxx.pepal.data.StoreSettings
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -35,11 +37,22 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun PepalTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    // Auto, Light or Dark
+    mode: String = run {
+        val dataStore = StoreSettings(LocalContext.current)
+        dataStore.getTheme.collectAsState(initial = "auto").value!!
+    },
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    val darkTheme = when (mode) {
+        "auto" -> isSystemInDarkTheme()
+        "light" -> false
+        "dark" -> true
+        else -> isSystemInDarkTheme()
+    }
+
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
@@ -48,6 +61,7 @@ fun PepalTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

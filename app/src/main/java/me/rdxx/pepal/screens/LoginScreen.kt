@@ -1,10 +1,8 @@
 package me.rdxx.pepal.screens
 
 import android.view.KeyEvent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -21,10 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import me.rdxx.pepal.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,12 +39,22 @@ fun LoginScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize(),
+//            .background(color = Color.Red),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            modifier = Modifier
+//                .background(color = Color.White)
+                .width(160.dp)
+                .height(40.dp),
+            painter = painterResource(id = R.drawable.logo_full),
+            contentDescription = "Logo",
+        )
+
         TextField(
             modifier = Modifier
-                .padding(0.dp, 0.dp, 0.dp, 32.dp)
+                .padding(0.dp, 50.dp, 0.dp, 24.dp)
                 .then(Modifier.onKeyEvent {
                     if (it.nativeKeyEvent.keyCode == KeyEvent.KEYCODE_ENTER) {
                         focusManager.moveFocus(FocusDirection.Down)

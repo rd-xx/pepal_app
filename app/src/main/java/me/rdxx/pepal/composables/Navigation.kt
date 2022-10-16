@@ -1,10 +1,11 @@
-package me.rdxx.pepal.utils
+package me.rdxx.pepal.composables
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import me.rdxx.pepal.screens.*
+import me.rdxx.pepal.utils.NavigationItems
 
 @Composable
 fun Navigation(navController: NavHostController) {

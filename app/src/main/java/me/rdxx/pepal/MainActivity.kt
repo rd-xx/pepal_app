@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import me.rdxx.pepal.composables.BottomNavigationBar
+import me.rdxx.pepal.composables.Navigation
 import me.rdxx.pepal.ui.theme.PepalTheme
-import me.rdxx.pepal.utils.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

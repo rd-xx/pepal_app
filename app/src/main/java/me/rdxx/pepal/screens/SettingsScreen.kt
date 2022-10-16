@@ -11,6 +11,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight.Companion.W500
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
@@ -72,6 +73,7 @@ fun SettingsScreen() {
                 .padding(0.dp, 32.dp, 0.dp, 16.dp),
 //                .background(Color.Blue),
             fontSize = 24.sp,
+            fontWeight = W500,
             text = "Settings"
         )
 

@@ -1,4 +1,4 @@
-package me.rdxx.pepal.utils
+package me.rdxx.pepal.structure
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*

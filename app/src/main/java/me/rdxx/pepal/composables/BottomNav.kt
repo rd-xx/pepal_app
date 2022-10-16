@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import me.rdxx.pepal.data.StoreSettings
-import me.rdxx.pepal.utils.NavigationItems
+import me.rdxx.pepal.structure.NavigationItems
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {

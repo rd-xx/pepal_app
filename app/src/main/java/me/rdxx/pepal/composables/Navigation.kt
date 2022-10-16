@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import me.rdxx.pepal.screens.*
-import me.rdxx.pepal.utils.NavigationItems
+import me.rdxx.pepal.structure.NavigationItems
 
 @Composable
 fun Navigation(navController: NavHostController) {

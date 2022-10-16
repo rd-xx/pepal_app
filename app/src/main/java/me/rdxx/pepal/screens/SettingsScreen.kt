@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import me.rdxx.pepal.data.StoreSettings
-import me.rdxx.pepal.utils.SettingsData
+import me.rdxx.pepal.structure.SettingsData
 
 
 @Composable

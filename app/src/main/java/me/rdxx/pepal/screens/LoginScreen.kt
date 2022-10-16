@@ -21,6 +21,7 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
@@ -58,7 +59,7 @@ fun LoginScreen() {
                     .fillMaxWidth()
                     .height(40.dp),
                 painter = painterResource(id = R.drawable.logo_full),
-                contentDescription = "Logo",
+                contentDescription = stringResource(R.string.logo),
             )
 
             TextField(
@@ -75,7 +76,7 @@ fun LoginScreen() {
                     }),
                 value = username,
                 onValueChange = { username = it },
-                label = { Text(text = "Nom d'utilisateur") },
+                label = { Text(text = stringResource(R.string.username)) },
                 placeholder = { Text(text = "etu.brahimgou") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
@@ -96,14 +97,17 @@ fun LoginScreen() {
                     },
                 value = password,
                 onValueChange = { password = it },
-                label = { Text(text = "Mot de passe") },
-                placeholder = { Text(text = "Mot de passe") },
+                label = { Text(text = stringResource(R.string.password)) },
+                placeholder = { Text(text = stringResource(R.string.password)) },
                 singleLine = true,
                 visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 trailingIcon = {
                     val image =
                         if (passwordVisible) Icons.Rounded.Visibility else Icons.Rounded.VisibilityOff
-                    val description = if (passwordVisible) "Hide password" else "Show password"
+                    val description =
+                        if (passwordVisible) stringResource(R.string.hide_password) else stringResource(
+                            R.string.show_password
+                        )
 
                     IconButton(onClick = { passwordVisible = !passwordVisible }) {
                         Icon(imageVector = image, description)
@@ -124,8 +128,7 @@ fun LoginScreen() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ClickableText(
-                    text = AnnotatedString("Mot de passe oublié ?"),
-                    // make text small and white
+                    text = AnnotatedString(stringResource(R.string.forgot_password)),
                     style = MaterialTheme.typography.bodySmall.plus(TextStyle(color = MaterialTheme.colorScheme.primary)),
                     onClick = {
                         openDialog = true
@@ -136,7 +139,7 @@ fun LoginScreen() {
                     onClick = { /*TODO*/ },
                     enabled = username.isNotEmpty() && password.isNotEmpty(),
                 ) {
-                    Text(text = "Se connecter")
+                    Text(text = stringResource(R.string.login))
                 }
             }
         }
@@ -150,11 +153,11 @@ fun LoginScreen() {
             confirmButton = {
                 TextButton(onClick = {
                     openDialog = false
-                }) { Text(text = "OK") }
+                }) { Text(text = stringResource(R.string.ok)) }
             },
-            title = { Text(text = "Mot de passe oublié") },
+            title = { Text(text = stringResource(R.string.forgot_password)) },
             text = {
-                Text(text = "Pour réinitialiser votre mot de passe, veuillez consulter directement le site de Pepal (https://pepal.eu/) et y entamer les procédures nécessaires.")
+                Text(text = stringResource(R.string.dialog_reset_password))
             }
         )
     }

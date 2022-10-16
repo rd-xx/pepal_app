@@ -1,4 +1,37 @@
 <resources>
     <string name="app_name" translatable="false">Pepal</string>
+
+    <!-- Menu -->
     <string name="settings">Settings</string>
+
+    <!-- Login -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="hide_password">Hide password</string>
+    <string name="show_password">Show password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="change_to">Change to %s</string>
+
+    <!-- Settings -->
+    <string name="debug_mode">Debug mode</string>
+    <string name="theme">Theme</string>
+    <string name="locale">Locale</string>
+
+    <!-- Theme -->
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="auto_short">Auto</string>
+
+    <!-- Languages -->
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="portuguese">Portuguese</string>
+
+    <!-- Random -->
+    <string name="logo">Logo</string>
+    <string name="ok">OK</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_reset_password">Pour réinitialiser votre mot de passe, veuillez consulter directement le site de Pepal (https://pepal.eu/) et y entamer les procédures.</string>
 </resources>

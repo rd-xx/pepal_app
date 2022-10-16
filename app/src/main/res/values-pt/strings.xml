@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Menu -->
     <string name="settings">Parâmetros</string>
+
+    <!-- Login -->
+    <string name="username">Nome de usuário</string>
+    <string name="password">Senha</string>
+    <string name="login">Logar</string>
+    <string name="hide_password">Esconder senha</string>
+    <string name="show_password">Mostrar senha</string>
+    <string name="forgot_password">Senha esquecida?</string>
+    <string name="change_to">Passar em %s</string>
+
+    <!-- Settings -->
+    <string name="debug_mode">Modo de debug</string>
+    <string name="theme">Tema</string>
+    <string name="locale">Língua</string>
+
+    <!-- Theme -->
+    <string name="light">Claro</string>
+    <string name="dark">Escuro</string>
+    <string name="auto_short">Auto</string>
+
+    <!-- Languages -->
+    <string name="english">Inglês</string>
+    <string name="french">Francês</string>
+    <string name="portuguese">Português</string>
+
+    <!-- Random -->
+    <string name="logo">Logo</string>
+    <string name="ok">OK</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_reset_password">Pour réinitialiser votre mot de passe, veuillez consulter directement le site de Pepal (https://pepal.eu/) et y entamer les procédures.</string>
 </resources>

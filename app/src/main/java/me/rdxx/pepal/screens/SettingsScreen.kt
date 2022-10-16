@@ -31,7 +31,7 @@ fun SettingsScreen() {
     val storedLocale = dataStore.getLocale.collectAsState(initial = "auto").value!!
 
     val elements = listOf(
-        SettingsData("Debug mode") {
+        SettingsData(stringResource(R.string.debug_mode)) {
             Switch(
                 checked = storedDebug,
                 onCheckedChange = {
@@ -41,7 +41,7 @@ fun SettingsScreen() {
                     }
                 })
         },
-        SettingsData("Theme") {
+        SettingsData(stringResource(R.string.theme)) {
             Button(onClick = {
                 scope.launch {
                     dataStore.saveTheme(
@@ -55,15 +55,27 @@ fun SettingsScreen() {
                 }
             }) {
                 val nextTheme = when (storedTheme) {
-                    "auto" -> "Change to light"
-                    "light" -> "Change to dark"
-                    "dark" -> "Change to auto"
-                    else -> "Change to auto"
+                    "auto" -> stringResource(
+                        R.string.change_to,
+                        stringResource(R.string.light).lowercase()
+                    )
+                    "light" -> stringResource(
+                        R.string.change_to,
+                        stringResource(R.string.dark).lowercase()
+                    )
+                    "dark" -> stringResource(
+                        R.string.change_to,
+                        stringResource(R.string.auto_short).lowercase()
+                    )
+                    else -> stringResource(
+                        R.string.change_to,
+                        stringResource(R.string.auto_short).lowercase()
+                    )
                 }
                 Text(text = nextTheme)
             }
         },
-        SettingsData("Locale") {
+        SettingsData(stringResource(R.string.locale)) {
             Button(onClick = {
                 scope.launch {
                     dataStore.saveLocale(
@@ -78,11 +90,11 @@ fun SettingsScreen() {
                 }
             }) {
                 val nextLocale = when (storedLocale) {
-                    "auto" -> "Change to English"
-                    "en" -> "Change to French"
-                    "fr" -> "Change to Portuguese"
-                    "pt" -> "Change to auto"
-                    else -> "Change to auto"
+                    "auto" -> stringResource(R.string.change_to, stringResource(R.string.english))
+                    "en" -> stringResource(R.string.change_to, stringResource(R.string.french))
+                    "fr" -> stringResource(R.string.change_to, stringResource(R.string.portuguese))
+                    "pt" -> stringResource(R.string.change_to, stringResource(R.string.auto_short))
+                    else -> stringResource(R.string.change_to, stringResource(R.string.auto_short))
                 }
                 Text(text = nextLocale)
             }

@@ -11,10 +11,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight.Companion.W500
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
+import me.rdxx.pepal.R
 import me.rdxx.pepal.data.StoreSettings
 import me.rdxx.pepal.structure.SettingsData
 
@@ -26,6 +28,7 @@ fun SettingsScreen() {
 
     var storedDebug = dataStore.getDebug.collectAsState(initial = false).value!!
     val storedTheme = dataStore.getTheme.collectAsState(initial = "auto").value!!
+    val storedLocale = dataStore.getLocale.collectAsState(initial = "auto").value!!
 
     val elements = listOf(
         SettingsData("Debug mode") {
@@ -59,6 +62,30 @@ fun SettingsScreen() {
                 }
                 Text(text = nextTheme)
             }
+        },
+        SettingsData("Locale") {
+            Button(onClick = {
+                scope.launch {
+                    dataStore.saveLocale(
+                        when (storedLocale) {
+                            "auto" -> "en"
+                            "en" -> "fr"
+                            "fr" -> "pt"
+                            "pt" -> "auto"
+                            else -> "auto"
+                        }
+                    )
+                }
+            }) {
+                val nextLocale = when (storedLocale) {
+                    "auto" -> "Change to English"
+                    "en" -> "Change to French"
+                    "fr" -> "Change to Portuguese"
+                    "pt" -> "Change to auto"
+                    else -> "Change to auto"
+                }
+                Text(text = nextLocale)
+            }
         }
     )
 
@@ -74,7 +101,7 @@ fun SettingsScreen() {
 //                .background(Color.Blue),
             fontSize = 24.sp,
             fontWeight = W500,
-            text = "Settings"
+            text = stringResource(R.string.settings)
         )
 
         Column(

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Pepal</string>
+    <string name="app_name" translatable="false">Pepal</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -7,10 +7,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import me.rdxx.pepal.data.StoreSettings
 
 private val DarkColorScheme = darkColorScheme(
@@ -73,6 +75,16 @@ fun PepalTheme(
                 !darkTheme
 //            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
         }
+    }
+
+    val systemUiController = rememberSystemUiController()
+    SideEffect {
+        // Update all of the system bar colors to be transparent, and use
+        // dark icons if we're in light theme
+        systemUiController.setSystemBarsColor(
+            color = if (darkTheme) Color(0xFF2B2831) else Color(0xFFF2EDF7),
+            darkIcons = !darkTheme
+        )
     }
 
     MaterialTheme(

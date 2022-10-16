@@ -10,10 +10,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import me.rdxx.pepal.composables.BottomNavigationBar
 import me.rdxx.pepal.composables.Navigation
 import me.rdxx.pepal.ui.theme.PepalTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
